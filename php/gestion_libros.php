@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="submit" value="Introducir" />
    </form>
 
-   <a href="index.html">
+   <a href="../index.html">
          <button>HOME</button>
       </a>
 
