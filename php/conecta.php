@@ -24,7 +24,7 @@
             // Verifica si la conexión existe antes de cerrarla
             if ($this->conexion) {
                 mysqli_close($this->conexion);
-                echo "<p>Se ha cerrado la conexión</p>";
+                echo '<p style="color: white; font-weight: bold;">Se ha cerrado la conexión</p>';
             }
         }
         function getConexion(){

@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+* {
+   box-sizing: border-box;
+   margin: 0;
+   font-family: 'Ubuntu Mono', monospace;
+   font-size: 16px; 
+}
+
+body {
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(37,164,101,1) 39%, rgba(0,212,255,1) 100%);
+}
+
+#formulario-container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 110px;
+   position: relative;
+}
+
+#sinopsis {
+   resize: none;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+input[type="submit"] {
+   background-color: #333d49;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+   padding: 10px 20px;
+   font-size: 16px;
+   font-weight: bold;
+}
+
+form {
+   font-size: 18px; 
+   color: #333d49;
+}
+
+label {
+   font-size: 20px; 
+   font-weight: bold; 
+   color: white;
+   margin-bottom: 40px;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+   font-size: 16px;
+   font-weight: bold;
+   padding: 8px;
+   width: 100%;
+   margin-bottom: 18px;
+   margin-top: 5px;
+   color: black; 
+}
+
+button {
+   padding: 10px 20px;
+   font-size: 18px;
+   font-weight: bold;
+   background-color: #333d49;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+button:hover, input[type="submit"]:hover {
+   background-color: #6e737a;
+}
+
+#boton-home {
+   position: absolute;
+   top: 10px; /* Ajusta la distancia desde la parte superior según tus necesidades */
+   right: 10px; /* Ajusta la distancia desde la derecha según tus necesidades */
+}
