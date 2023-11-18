@@ -4,12 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Gestión de Libros</title>
-
-   <style>
-      #sinopsis {
-         resize: none
-      }
-   </style>
+   <link rel="stylesheet" href="../css/libros.css">
 </head>
 <body>
 <?php
@@ -23,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
       if ($bd->conectar()) {
-         echo "<p>Conectado</p>";
+         echo '<p style="color: white; font-weight: bold;">Conectado</p>';
          $conexion = $bd->getConexion();
          mysqli_select_db($conexion, "Biblioteca");
                   
@@ -42,19 +37,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          $resultadoNombre = mysqli_query($conexion, $sqlNombre);
            
          if (mysqli_num_rows($resultadoNombre) > 0) {
-            echo "<p>El libro que estás intentando introducir ya existe.</p>";
+            echo '<p style="color: white; font-weight: bold;">El libro que estás intentando introducir ya existe.</p>';
          } else {
             // Sentencia SQL para la inserción en la tabla libros
             $sql = "INSERT INTO libros (nombre, autor, publicacion, isbn, sinopsis, n_totales, n_disponibles) 
             VALUES ('$nombre', '$autor', '$fechaFormateada', '$isbn', '$sinopsis', '$n_totales', '$n_totales')";
             
             if (mysqli_query($conexion, $sql)) {
-               echo "<p>Libro introducido</p>";
-            } 
+               echo '<p style="color: white; font-weight: bold;">Libro introducido</p>';
+           }
          }
 
       } else {
-         echo "<p>Error al conectar con la base de datos</p>";
+         echo '<p style="color: white; font-weight: bold;">Error al conectar con la base de datos</p>';
          mysqli_error($bd->getConexion()); // Muestra el código de error
       }
 
@@ -67,39 +62,43 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     ?>
 
-<form name="introducirLibro" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-
+<div id="formulario-container">
+   <form name="introducirLibro" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       <label for="nombre">Nombre del libro:</label>
-         <br>
+      <br>
       <input type="text" name="nombre" required/><br />
 
       <label for="autor">Autor:</label>
-         <br>
+      <br>
       <input type="text" name="autor" required/><br />
 
       <label for="publicacion">Publicacion:</label>
-         <br>
+      <br>
       <input type="date" name="publicacion" required/><br />
 
       <label for="isbn">ISBN:</label>
-         <br>
+      <br>
       <input type="text" name="isbn" required/><br />
 
-
       <label for="sinopsis">Sinopsis:</label>
-         <br>
-      <textarea id="sinopsis" name="sinopsis" rows="4" cols="50" required/></textarea><br />
+      <br>
+      <textarea id="sinopsis" name="sinopsis" rows="4" cols="50" required></textarea><br />
 
       <label for="n_totales">Libros totales:</label>
-         <br>
+      <br>
       <input type="text" name="n_totales" required/><br />
 
       <input type="submit" value="Introducir" />
    </form>
 
+</div>
+
+<div id="boton-home">
    <a href="../index.html">
-         <button>HOME</button>
-      </a>
+      <button>HOME</button>
+   </a>
+</div>
+
 
 </body>
 </html>

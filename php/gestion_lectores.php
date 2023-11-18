@@ -24,14 +24,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $dni = mysqli_real_escape_string($conexion, $_POST['dni']);
                 $estado = "Activo";
 
-                // Sentencia SQL para la inserción en la tabla lectores
-                $sql = "INSERT INTO lectores (lector, dni, estado) 
-                        VALUES ('$nombre', '$dni', '$estado')";
+                // Verificar si el lector ya existe
+                $consultaLector = "SELECT * FROM lectores WHERE dni = '$dni'";
+                $resultadoLector = mysqli_query($conexion, $consultaLector);
 
-                if (mysqli_query($conexion, $sql)) {
-                    echo "<p>Lector introducido correctamente</p>";
-                } 
+                if (mysqli_num_rows($resultadoLector) > 0) {
+                    echo "<p>El lector con DNI $dni ya existe en la base de datos.</p>";
+                } else {
+                    // Si no existe, insertar en la tabla lectores
+                    $sql = "INSERT INTO lectores (lector, dni, estado) 
+                            VALUES ('$nombre', '$dni', '$estado')";
 
+                    if (mysqli_query($conexion, $sql)) {
+                        echo "<p>Lector introducido correctamente</p>";
+                    }
+                }
             } elseif (isset($_POST['borrar'])) {
                 // Formulario de borrado
                 $borrarDni = mysqli_real_escape_string($conexion, $_POST['dniBorrar']);
