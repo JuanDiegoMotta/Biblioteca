@@ -70,35 +70,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <form name="introducirLibro" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
       <label for="nombre">Nombre del libro:</label>
-      <br>
+         <br>
       <input type="text" name="nombre" required/><br />
 
       <label for="autor">Autor:</label>
-      <br>
+         <br>
       <input type="text" name="autor" required/><br />
 
       <label for="publicacion">Publicacion:</label>
-      <br>
+         <br>
       <input type="date" name="publicacion" required/><br />
 
       <label for="isbn">ISBN:</label>
-      <br>
+         <br>
       <input type="text" name="isbn" required/><br />
 
 
       <label for="sinopsis">Sinopsis:</label>
-      <br>
+         <br>
       <textarea id="sinopsis" name="sinopsis" rows="4" cols="50" required/></textarea><br />
 
       <label for="n_totales">Libros totales:</label>
-      <br>
+         <br>
       <input type="text" name="n_totales" required/><br />
 
       <input type="submit" value="Introducir" />
-    </form>
 
-    <a href="index.html">
-            <button>HOME</button>
-         </a>
+      <a href="index.html">
+         <button>HOME</button>
+      </a>
+   </form>
+
 </body>
 </html>
