@@ -95,11 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <input type="text" name="n_totales" required/><br />
 
       <input type="submit" value="Introducir" />
+   </form>
 
-      <a href="index.html">
+   <a href="index.html">
          <button>HOME</button>
       </a>
-   </form>
 
 </body>
 </html>
