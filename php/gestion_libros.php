@@ -62,6 +62,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     ?>
 
+<div class="titulo">
+   <h1>Añade un libro a nuestra biblioteca!</h1>
+</div>
+
 <div id="formulario-container">
    <form name="introducirLibro" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
       <label for="nombre">Nombre del libro:</label>
@@ -88,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <br>
       <input type="text" name="n_totales" required/><br />
 
-      <input type="submit" value="Introducir" />
+      <input type="submit" value="INTRODUCIR" />
    </form>
 
 </div>

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
 * {
    box-sizing: border-box;
    margin: 0;
    font-family: 'Ubuntu Mono', monospace;
-   font-size: 16px; 
 }
 
 body {
@@ -13,18 +13,73 @@ body {
 
 #formulario-container {
    display: flex;
-   flex-direction: column;
-   align-items: center;
    justify-content: center;
-   margin-top: 110px;
+   align-items: center;
+   height: 100vh;
    position: relative;
+ }
+
+ #container1, #container2 {
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   height: 400px;
+ }
+
+ #container1 {
+   margin-right: 250px; 
+ }
+
+ #container2 {
+   margin-left: 250px; 
+ }
+
+ 
+ .vertical-line {
+   height: 80%; 
+   border-left: 5px solid #ffff; 
+   margin: 0 10px; 
+ }
+
+ form {
+   text-align: left; 
+ }
+
+ label {
+   font-size: 20px; 
+   font-weight: bold; 
+   color: white;
+   margin-bottom: 40px;
 }
 
-#sinopsis {
-   resize: none;
-   font-size: 16px;
-   font-weight: bold;
-}
+h2 {
+   color: white;
+   font-size: 2.5em; 
+   margin-bottom: 60px;
+   padding: 20px;
+   text-align: center; 
+ }
+
+ #container1 input[type="text"] {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 18px;
+    margin-top: 5px;
+    color: black; 
+ }
+
+ #container2 input[type="text"] {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px;
+    width: 100%;
+    margin-bottom: 18px;
+    margin-top: 5px;
+    color: black; 
+ }
+
 
 input[type="submit"] {
    background-color: #333d49;
@@ -37,30 +92,6 @@ input[type="submit"] {
    font-size: 16px;
    font-weight: bold;
    letter-spacing: 2px;
-}
-
-form {
-   font-size: 18px; 
-   color: #333d49;
-}
-
-label {
-   font-size: 20px; 
-   font-weight: bold; 
-   color: white;
-   margin-bottom: 40px;
-}
-
-input[type="text"],
-input[type="date"],
-textarea {
-   font-size: 16px;
-   font-weight: bold;
-   padding: 8px;
-   width: 100%;
-   margin-bottom: 18px;
-   margin-top: 5px;
-   color: black; 
 }
 
 button {
@@ -83,18 +114,4 @@ button:hover, input[type="submit"]:hover {
    position: absolute;
    top: 10px;
    right: 10px;
-}
-
-.titulo {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   margin-top: 110px;
-
-}
-
-.titulo h1{
-   color: #ffff;
-   font-size: 38px;
 }

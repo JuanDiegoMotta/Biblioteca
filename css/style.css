@@ -8,7 +8,7 @@
 
 body {
    background: rgb(2,0,36);
-   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(37,164,101,1) 39%, rgba(0,212,255,1) 100%);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(37, 67, 164) 50%, rgba(2,0,36,1) 100%);
 }
 
 h1 {
@@ -30,8 +30,10 @@ a {
 }
 
 button {
-   padding: 10px 20px;
-   font-size: 16px;
+   padding: 18px 20px;
+   font-size: 18px;
+   font-weight: 700;
+   letter-spacing: 2px;
    margin: 10px;
    background-color: #333d49;
    color: white;
@@ -43,4 +45,18 @@ button {
 
 button:hover {
    background-color: #6e737a;
+}
+
+.titulo {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   margin-top: 110px;
+
+}
+
+.titulo h1{
+   color: #ffff;
+   font-size: 44px;
 }
