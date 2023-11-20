@@ -4,6 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Gestión lectores</title>
+   <link rel="stylesheet" href="../css/lectores.css">
 </head>
 <body>
 <?php
@@ -29,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $resultadoLector = mysqli_query($conexion, $consultaLector);
 
                 if (mysqli_num_rows($resultadoLector) > 0) {
-                    echo "<p>El lector con DNI $dni ya existe en la base de datos.</p>";
+                    echo "<p style='color: white; font-weight: bold;'>El lector con DNI $dni ya existe en la base de datos.</p>";
+
                 } else {
                     // Si no existe, insertar en la tabla lectores
                     $sql = "INSERT INTO lectores (lector, dni, estado) 
@@ -63,34 +65,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<form name="IntroducirLector" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+<div id="formulario-container">
+    
+    <div id="container1">
+        <h2>Añadir lector</h2>
+        <form name="IntroducirLector" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+            <label for="nombre">Nombre del lector:</label>
+            <br>
+            <input type="text" name="nombre" required/><br />
 
-      <label for="nombre">Nombre del lector:</label>
-      <br>
-      <input type="text" name="nombre" required/><br />
+            <label for="dni">DNI:</label>
+                <br>
+            <input type="text" id="dni" name="dni" pattern="[0-9]{8}[a-zA-Z]" maxlength="9" placeholder="8 dígitos+letra" required />
+                <br>
+                <br>
+            <input type="submit" name="introducir" value="Introducir" />
+        </form>
+    </div>
 
-      <label for="dni">DNI:</label>
-         <br>
-      <input type="text" id="dni" name="dni" pattern="[0-9]{8}[a-zA-Z]" maxlength="9" placeholder="8 dígitos+letra" required />
-         <br>
-         <br>
-      <input type="submit" name="introducir" value="Introducir" />
-   </form>
+    <div class="vertical-line"></div>
 
-   <form name="BorrarLector" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
-      <label for="dniBorrar">DNI del lector a borrar:</label>
-         <br>
-      <input type="text" name="dniBorrar" pattern="[0-9]{8}[a-zA-Z]" maxlength="9" placeholder="8 dígitos+letra" required />
-         <br>
-         <br>
-      <input type="submit" name="borrar" value="Borrar" />
-    </form>
+    <div id="container2">
+        <h2>Borrar lector</h2>
+        <form name="BorrarLector" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
+            <label for="dniBorrar">DNI del lector a borrar:</label>
+                <br>
+            <input type="text" name="dniBorrar" pattern="[0-9]{8}[a-zA-Z]" maxlength="9" placeholder="8 dígitos+letra" required />
+                <br>
+                <br>
+            <input type="submit" name="borrar" value="Borrar" />
+        </form>
+    </div>
+</div>
 
-
+<div id="boton-home">
    <a href="../index.html">
-         <button>HOME</button>
-      </a>
-
+      <button>HOME</button>
+   </a>
+</div>
 
 </body>
 </html>
