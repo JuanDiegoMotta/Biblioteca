@@ -1,5 +1,6 @@
 Proyecto Biblioteca:
+    ☐ Consulta préstamos @high 
+    ☐ Gestión préstamos @high
+    ☐ Pasar de index.html a index.php (crear BBDD y tablas cuando se carge) @high 
     ☐ Comprobar lógica mensajes de completado, borrar mensajes de conexión BBDD @low 
     ☐ Comprobar que todo el código se ha comentado @low 
-    ☐ Gestión préstamos @high
-    ☐ Consulta préstamos @high 
