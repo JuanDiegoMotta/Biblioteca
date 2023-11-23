@@ -37,7 +37,7 @@ try {
             $consultaExistePrestamo = "SELECT * FROM prestamos WHERE id_lector = $id_lector AND id_libro = $id_libro";
             $result3 = mysqli_query($conexion, $consultaExistePrestamo);
             if (mysqli_num_rows($result3) > 0) {
-                echo "<p>El lector ya tiene el libro en préstamo</p>";
+                echo '<p style="color: white; font-weight: bold;">El lector ya tiene el libro en préstamo</p>';
             } else {
                 // En el caso de que no exista este préstamo, lo introducimos.
 
@@ -46,7 +46,7 @@ try {
                 VALUES ('$id_lector', '$id_libro')";
 
                 if ($result = mysqli_query($conexion, $insertPrestamos)) {
-                    echo "<p>Inserción completada</p>";
+                    echo '<p style="color: white; font-weight: bold;">Inserción completada</p>';
 
                     // UPDATE para restar 1 a n_disponibles en la tabla libros
                     $updateLibro = "UPDATE libros
@@ -54,9 +54,9 @@ try {
                     WHERE id = $id_libro";
 
                     if ($result = mysqli_query($conexion, $updateLibro)) {
-                        echo "<p>Update tabla libros completado</p>";
+                        // echo "<p>Update tabla libros completado</p>";
                     } else {
-                        echo "<p>Problema con el update de la tabla libros</p>";
+                        // echo "<p>Problema con el update de la tabla libros</p>";
                     }
 
                     // UPDATE para añadir 1 a n_prestado en la tabla libros
@@ -65,12 +65,12 @@ try {
                     WHERE id = $id_lector";
 
                     if ($result = mysqli_query($conexion, $updateLector)) {
-                        echo "<p>Update tabla lectores completado</p>";
+                        // echo "<p>Update tabla lectores completado</p>";
                     } else {
-                        echo "<p>Problema con el update de la tabla lectores</p>";
+                        // echo "<p>Problema con el update de la tabla lectores</p>";
                     }
                 } else {
-                    echo "<p>Problema con la inserción</p>";
+                    echo '<p style="color: white; font-weight: bold;">Problema con la inserción</p>';
                 }
             }
         }
@@ -100,16 +100,16 @@ try {
             WHERE id_libro = $id_libro AND id_lector = $id_lector";
 
             if (mysqli_query($conexion, $borrarPrestamo)) {
-                echo "<p>Libro devuelto correctamente</p>";
+                echo '<p style="color: white; font-weight: bold;">Libro devuelto correctamente</p>';
                 // UPDATE para sumar 1 a n_disponibles en la tabla libros
                 $updateLibro = "UPDATE libros
                  SET n_disponibles = n_disponibles + 1
                  WHERE id = $id_libro";
 
                 if ($result = mysqli_query($conexion, $updateLibro)) {
-                    echo "<p>Update tabla libros completado</p>";
+                    // echo "<p>Update tabla libros completado</p>";
                 } else {
-                    echo "<p>Problema con el update de la tabla libros</p>";
+                    // echo "<p>Problema con el update de la tabla libros</p>";
                 }
 
                 // UPDATE para restar 1 a n_prestado en la tabla libros
@@ -118,9 +118,9 @@ try {
                  WHERE id = $id_lector";
 
                 if ($result = mysqli_query($conexion, $updateLector)) {
-                    echo "<p>Update tabla lectores completado</p>";
+                    // echo "<p>Update tabla lectores completado</p>";
                 } else {
-                    echo "<p>Problema con el update de la tabla lectores</p>";
+                    // echo "<p>Problema con el update de la tabla lectores</p>";
                 }
             }
         }
@@ -133,11 +133,17 @@ try {
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Gestión préstamos</title>
+            <link rel="stylesheet" href="../css/prestamos.css">
         </head>
 
         <body>
+            <div class="titulo">
+                <h1>Gestión de préstamos</h1>
+            </div>
             <div class="containerPpal">
                 <div class="formRealizarPrest">
+                    <h1>Realizar préstamo</h1>
+                    <br><br>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <label for="lector">
                             <h2>Selecciona al lector:</h2>
@@ -184,7 +190,10 @@ try {
                         <button type="submit" name="realizar">Realizar préstamo</button>
                     </form>
                 </div>
+                <div class="vertical-line"></div>
                 <div class="formDevolverPrest">
+                    <h1>Devolver préstamo</h1>
+                    <br><br>
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <label for="lector2">
                             <h2>Selecciona al lector:</h2>
@@ -209,9 +218,14 @@ try {
                         </select>
                         <button type="submit" name="seleccionar">Seleccionar</button>
                     </form>
-                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+                    <div id="boton-home">
+                        <a href="../index.html">
+                            <button>HOME</button>
+                        </a>
+                    </div>
+                    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" id="formLectorDev">
                         <label for="librosLector">Selecciona un libro a devolver:</label>
-                        <select name="librosLector" required>
+                        <select name="librosLector" id="librosLector" required>
                             <option value="" selected></option>
                             <?php
                             if (isset($_POST['seleccionar'])) {
@@ -239,10 +253,10 @@ try {
                                         $nombre = $fila['nombre_libro'];
                                         echo "<option value='$nombre'>$nombre</option>";
                                     }
-                                } 
+                                }
                             ?>
                         </select>
-        <?php
+            <?php
                                 // Pásamos el nombre del lector a la variable $_POST mediante input:hidden
                                 echo "<input type='hidden' name='nombreLector' value='$lector'>";
                                 echo "<p>Lector seleccionado: $lector</p>";
@@ -254,12 +268,14 @@ try {
                         echo "Error al intentar conectar con la BBDD: " . $e->getMessage();
                     }
 
-        ?>
-        <button type="submit" name="devolver">Devolver</button>
+            ?>
+            <button type="submit" name="devolver">Devolver</button>
                     </form>
+
                 </div>
 
             </div>
+
         </body>
 
         </html>

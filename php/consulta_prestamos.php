@@ -92,7 +92,7 @@
                                     echo "</tr>";
                                 }
                             } else {
-                                echo "<p>El lector no tiene ningún libro en préstamo</p>";
+                                echo '<p style="color: white; font-weight: bold;">El lector no tiene ningún libro en préstamo</p>';
                             }
                             ?>
                         </table>

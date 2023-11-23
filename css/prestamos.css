@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
+* {
+   box-sizing: border-box;
+   margin: 0;
+   font-family: 'Ubuntu Mono', monospace;
+}
+
+body {
+   background: rgb(2,0,36);
+   background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(37, 67, 164) 50%, rgba(2,0,36,1) 100%);
+}
+
+.titulo {
+   color: #ffff;
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+   font-size: 2em;
+}
+
+.containerPpal {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   position: relative;
+   height: 60vh;
+   color: #ffff;
+}
+
+.formDevolverPrest {
+   margin-right: 150px;
+}
+
+.formRealizarPrest {
+   margin-left: 150px;
+}
+
+.formRealizarPrest,
+.formDevolverPrest {
+   width: 100%;
+   max-width: 400px; /* ajusta según sea necesario */
+   margin-top: 20px;
+}
+
+.vertical-line {
+   height: 80%; 
+   border-left: 5px solid #ffff; 
+   margin: 0 10px; 
+ }
+
+#lector,
+#lector2,
+#libro,
+#librosLector {
+   width: 100%;
+   font-size: 16px;
+   font-weight: bold;
+   padding: 4px;
+   margin-bottom: 18px;
+   margin-top: 5px;
+   color: black;
+}
+
+#formLectorDev {
+   margin-top: 30px;
+}
+
+button[type="submit"]{
+   background-color: #333d49;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+   padding: 10px 20px;
+   font-size: 16px;
+   font-weight: bold;
+   letter-spacing: 2px;
+}
+
+button:hover,
+button[type="submit"]:hover {
+   background-color: #6e737a;
+}
+
+button {
+   padding: 10px 20px;
+   font-size: 18px;
+   font-weight: bold;
+   background-color: #333d49;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s;
+}
+
+#boton-home {
+   position: fixed;
+   top: 10px;
+   right: 10px;
+}
+
+/* Media query para pantallas medianas (tablets) */
+@media screen and (max-width: 768px) {
+.containerPpal {
+   flex-direction: column;
+}
+
+   .formDevolverPrest {
+      width: 80%;
+      font-size: 0.7em; 
+   }
+
+   .formRealizarPrest {
+      font-size: 0.7em; 
+   }
+   .titulo {
+      font-size: 1em ;
+   }
+
+   button[type="submit"] {
+      font-size: 1em;
+   }
+}
+
+/* Media query para pantallas pequeñas (móviles) */
+@media screen and (max-width: 480px) {
+   .formDevolverPrest {
+      width: 100%; 
+   }
+
+   .titulo {
+      font-size: 0.8em ;
+   }
+}
+
