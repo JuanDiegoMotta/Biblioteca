@@ -14,7 +14,7 @@ try {
             // Crear la base de datos
             $sqlCreateDB = "CREATE DATABASE Biblioteca";
             if (mysqli_query($conexion, $sqlCreateDB)) {
-                echo "<p>Base de datos 'Biblioteca' creada con éxito.</p>";
+                echo "<p style='color: white; font-weight: bold;'>Base de datos 'Biblioteca' creada con éxito.</p>";
 
                 // Cambiar al contexto de la nueva base de datos
                 mysqli_select_db($conexion, "Biblioteca");
@@ -55,7 +55,7 @@ try {
                         mysqli_next_result($conexion);
                     } while (mysqli_more_results($conexion));
 
-                    echo "<p>Tablas creadas correctamente.</p>";
+                    // echo "<p>Tablas creadas correctamente.</p>";
 
                     // Insertar datos
                     $sqlInsertData = "
@@ -81,7 +81,7 @@ try {
                             mysqli_next_result($conexion);
                         } while (mysqli_more_results($conexion));
 
-                        echo "<p>Datos insertados correctamente.</p>";
+                        // echo "<p>Datos insertados correctamente.</p>";
                     } else {
                         throw new Exception("Error al insertar datos: " . mysqli_error($conexion));
                     }
@@ -92,7 +92,7 @@ try {
                 throw new Exception("Error al crear la base de datos: " . mysqli_error($conexion));
             }
         } else {
-            echo "<p>La BBDD Biblioteca ya existe.</p>";
+            // echo "<p style='color: white; font-weight: bold;'>La BBDD Biblioteca ya existe.</p>";
         }
 
         $bd->cerrar();
