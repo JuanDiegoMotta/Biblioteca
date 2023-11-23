@@ -11,6 +11,10 @@ body {
    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(37, 67, 164) 50%, rgba(2,0,36,1) 100%);
 }
 
+h1 {
+   color: #ffff;
+ }
+
 #formulario-container {
    display: flex;
    justify-content: center;
