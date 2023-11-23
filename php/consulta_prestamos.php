@@ -30,8 +30,9 @@
                 <div class="containerLector">
                     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                         <!-- Creamos un select para escoger a un lector -->
-                        <label for="lector"><h2>Escoge a un lector:</h2></label>
+                        <label for="lector" id="escogerLector">Escoge a un lector:</label>
                         <select name="lector" id="lector">
+                            <option value="" selected></option>
                             <?php
                             // Comprobamos si hay resultados
                             if (mysqli_num_rows($result) > 0) {
