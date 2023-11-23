@@ -17,16 +17,21 @@ body {
 }
 
 .containerPpal {
-  border: 1px solid white;
   display: flex;
   justify-content: space-between;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
 }
+
 .containerLector {
   width: fit-content;
+  margin-left: 150px;
+}
 
+.containerTabla {
+  width: fit-content;
+margin-right: 150px;
 }
 label {
   display: block;
@@ -39,7 +44,6 @@ select {
 }
 .containerTabla {
   width: fit-content;
-  border: 1px dotted white;
 }
 table {
   border-collapse: collapse;
@@ -59,6 +63,11 @@ td {
   color: #ffff;
   text-align: left;
   padding: 8px;
+}
+
+tr {
+  border: 1px solid #dddddd;
+  text-align: left;
 }
 
 th {
@@ -86,6 +95,10 @@ button {
   right: 10px;
 }
 
+button:hover, button[type="submit"]:hover {
+  background-color: #6e737a;
+}
+
 .titulo {
   display: flex;
   flex-direction: column;
@@ -98,4 +111,19 @@ button {
 .titulo h1 {
   color: #ffff;
   font-size: 44px;
+}
+
+#escogerLector{
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+#lector {
+  width: 100%;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px;
+  margin-bottom: 18px;
+  margin-top: 5px;
+  color: black;
 }
