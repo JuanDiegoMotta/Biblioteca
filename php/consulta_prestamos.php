@@ -51,7 +51,7 @@
                     </form>
                 </div>
                 <?php
-                if (isset($_POST['mostrar'])) {
+                if (isset($_POST['mostrar']) && !empty($_POST['lector'])) {
                     $lector = $_POST['lector'];
 
                     // Consulta para obtener ID lector
