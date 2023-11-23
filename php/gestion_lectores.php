@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión lectores</title>
-        <!-- <link rel="stylesheet" href="../css/lectores.css"> -->
+    <link rel="stylesheet" href="../css/lectores.css">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
                             VALUES ('$nombre', '$dni', '$estado', 0)";
 
                         if (mysqli_query($conexion, $sql)) {
-                            echo "<p style='color: white; font-weight: bold;>Lector introducido correctamente</p>";
+                            echo "<p style='color: white; font-weight: bold;'>Lector introducido correctamente</p>";
                         }
                     }
                 } elseif (isset($_POST['borrar'])) {
@@ -49,7 +49,7 @@
                     $sql = "DELETE FROM lectores WHERE dni = '$borrarDni'";
 
                     if (mysqli_query($conexion, $sql)) {
-                        echo "<p style='color: white; font-weight: bold;>Lector eliminado correctamente</p>";
+                        echo "<p style='color: white; font-weight: bold;'>Lector eliminado correctamente</p>";
                     }
                 }
             } else {
@@ -62,10 +62,8 @@
             echo $e->getMessage();
         }
     }
-
-
     ?>
-    
+
     <div id="formulario-container">
         <div id="container1">
             <h2>Añadir lector</h2>

@@ -26,7 +26,7 @@ body {
 }
 .containerLector {
   width: fit-content;
-  border: 1px dotted white;
+
 }
 label {
   display: block;

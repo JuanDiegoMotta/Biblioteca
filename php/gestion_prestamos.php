@@ -37,7 +37,7 @@ try {
             $consultaExistePrestamo = "SELECT * FROM prestamos WHERE id_lector = $id_lector AND id_libro = $id_libro";
             $result3 = mysqli_query($conexion, $consultaExistePrestamo);
             if (mysqli_num_rows($result3) > 0) {
-                echo "<p>El lector ya tiene el libro en préstamo</p>";
+                echo '<p style="color: white; font-weight: bold;">El lector ya tiene el libro en préstamo</p>';
             } else {
                 // En el caso de que no exista este préstamo, lo introducimos.
 
@@ -46,7 +46,7 @@ try {
                 VALUES ('$id_lector', '$id_libro')";
 
                 if ($result = mysqli_query($conexion, $insertPrestamos)) {
-                    echo "<p>Inserción completada</p>";
+                    echo '<p style="color: white; font-weight: bold;">Inserción completada</p>';
 
                     // UPDATE para restar 1 a n_disponibles en la tabla libros
                     $updateLibro = "UPDATE libros
@@ -54,9 +54,9 @@ try {
                     WHERE id = $id_libro";
 
                     if ($result = mysqli_query($conexion, $updateLibro)) {
-                        echo "<p>Update tabla libros completado</p>";
+                        // echo "<p>Update tabla libros completado</p>";
                     } else {
-                        echo "<p>Problema con el update de la tabla libros</p>";
+                        // echo "<p>Problema con el update de la tabla libros</p>";
                     }
 
                     // UPDATE para añadir 1 a n_prestado en la tabla libros
@@ -65,12 +65,12 @@ try {
                     WHERE id = $id_lector";
 
                     if ($result = mysqli_query($conexion, $updateLector)) {
-                        echo "<p>Update tabla lectores completado</p>";
+                        // echo "<p>Update tabla lectores completado</p>";
                     } else {
-                        echo "<p>Problema con el update de la tabla lectores</p>";
+                        // echo "<p>Problema con el update de la tabla lectores</p>";
                     }
                 } else {
-                    echo "<p>Problema con la inserción</p>";
+                    echo '<p style="color: white; font-weight: bold;">Problema con la inserción</p>';
                 }
             }
         }
@@ -100,16 +100,16 @@ try {
             WHERE id_libro = $id_libro AND id_lector = $id_lector";
 
             if (mysqli_query($conexion, $borrarPrestamo)) {
-                echo "<p>Libro devuelto correctamente</p>";
+                echo '<p style="color: white; font-weight: bold;">Libro devuelto correctamente</p>';
                 // UPDATE para sumar 1 a n_disponibles en la tabla libros
                 $updateLibro = "UPDATE libros
                  SET n_disponibles = n_disponibles + 1
                  WHERE id = $id_libro";
 
                 if ($result = mysqli_query($conexion, $updateLibro)) {
-                    echo "<p>Update tabla libros completado</p>";
+                    // echo "<p>Update tabla libros completado</p>";
                 } else {
-                    echo "<p>Problema con el update de la tabla libros</p>";
+                    // echo "<p>Problema con el update de la tabla libros</p>";
                 }
 
                 // UPDATE para restar 1 a n_prestado en la tabla libros
@@ -118,9 +118,9 @@ try {
                  WHERE id = $id_lector";
 
                 if ($result = mysqli_query($conexion, $updateLector)) {
-                    echo "<p>Update tabla lectores completado</p>";
+                    // echo "<p>Update tabla lectores completado</p>";
                 } else {
-                    echo "<p>Problema con el update de la tabla lectores</p>";
+                    // echo "<p>Problema con el update de la tabla lectores</p>";
                 }
             }
         }
