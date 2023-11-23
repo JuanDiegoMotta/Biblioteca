@@ -2,11 +2,13 @@
 require_once 'conecta.php';
 
 try {
+    // Creo instancia BD
     $bd = new BaseDeDatos();
 
     if ($bd->conectar()) {
         $conexion = $bd->getConexion();
 
+        // Comprubeo si existe 'Biblioteca'
         $query = "SHOW DATABASES LIKE 'Biblioteca'";
         $result = mysqli_query($conexion, $query);
 
@@ -48,7 +50,7 @@ try {
                         FOREIGN KEY (id_libro) REFERENCES Libros(id)
                     );
                 ";
-
+                // El siguiente código es para borrar la memoria del 'muli_query' y que no de error
                 if (mysqli_multi_query($conexion, $sqlCreateTables)) {
                     do {
                         // Vaciamos los resultados de cada consulta
