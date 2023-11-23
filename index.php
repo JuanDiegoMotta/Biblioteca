@@ -1,4 +1,7 @@
 <!-- Proyecto realizado por Jorge Burgos Barrera y Juan Diego Motta -->
+<?php
+   require_once 'php/controlBBDD/crea_tablas.php'
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
