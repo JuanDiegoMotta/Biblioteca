@@ -1,5 +1,6 @@
 <!-- Proyecto realizado por Jorge Burgos Barrera y Juan Diego Motta -->
 <?php
+   // Require del php que crea la BD si no existe
    require_once 'php/controlBBDD/crea_tablas.php'
 ?>
 <!DOCTYPE html>

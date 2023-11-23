@@ -219,7 +219,7 @@ try {
                         <button type="submit" name="seleccionar">Seleccionar</button>
                     </form>
                     <div id="boton-home">
-                        <a href="../index.html">
+                        <a href="../index.php">
                             <button>HOME</button>
                         </a>
                     </div>
