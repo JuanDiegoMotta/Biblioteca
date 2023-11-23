@@ -13,7 +13,7 @@
    </div>
 
 <?php
-require_once 'conecta.php';
+require_once 'controlBBDD/conecta.php';
 
 try {
    // Creamos la instancia de la clase BaseDeDatos

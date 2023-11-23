@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-require_once 'conecta.php';
+require_once 'controlBBDD/conecta.php';
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

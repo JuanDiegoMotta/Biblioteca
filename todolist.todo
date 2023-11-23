@@ -1,0 +1,8 @@
+Proyecto Biblioteca:
+    ✔ Consulta préstamos @high @done (11/22/2023, 9:47:00 AM)
+    ✔ Gestión préstamos @high @done (11/22/2023, 5:11:40 PM)
+    ☐ Pasar de index.html a index.php (crear BBDD y tablas cuando se carge) @high 
+    ☐ Repasar todo el CSS @low 
+    ☐ Repasar todas las funcionalidades @low 
+    ☐ Comprobar lógica mensajes de completado, borrar mensajes de conexión BBDD @low 
+    ☐ Comprobar que todo el código se ha comentado @low 

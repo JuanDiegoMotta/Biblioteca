@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-require_once 'conecta.php';
+require_once 'controlBBDD/conecta.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
@@ -34,8 +34,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 } else {
                     // Si no existe, insertar en la tabla lectores
-                    $sql = "INSERT INTO lectores (lector, dni, estado) 
-                            VALUES ('$nombre', '$dni', '$estado')";
+                    $sql = "INSERT INTO lectores (lector, dni, estado, n_prestado) 
+                            VALUES ('$nombre', '$dni', '$estado', 0)";
 
                     if (mysqli_query($conexion, $sql)) {
                         echo "<p>Lector introducido correctamente</p>";
